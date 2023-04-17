@@ -75,6 +75,22 @@
   <br>
 
 
+  <script>
+    function enviarFormulario() {
+      // Obtener los valores del formulario
+      var nombre = document.getElementById("nombre").value;
+      var email = document.getElementById("email").value;
+      var mensaje = document.getElementById("mensaje").value;
+
+      // Construir el contenido del correo electrónico
+      var cuerpoMensaje = "Nombre: " + nombre + "\r\n" +
+                          "Email: " + email + "\r\n" +
+                          "Mensaje: " + mensaje;
+
+      // Abrir el cliente de correo predeterminado del usuario con el contenido del correo electrónico
+      window.location.href = "mailto:cristianjfarina@gmail.com" + "?subject=Formulario de Contacto" + "&body=" + encodeURIComponent(cuerpoMensaje);
+    }
+  </script>
     <section>
       <form action="https://formsubmit.co/cristianjfarina@email.com" method="POST" class="formulario" id="formulario">
                 <!--Grupo: Nombre-->
@@ -99,7 +115,7 @@
                     <div class="formulario__grupo" id="grupo__correo">
                         <label for="correo" class="formulario__label">Correo Electrónico</label>
                         <div class="formulario__grupo-input">
-                            <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com" required>
+                            <input type="email" class="formulario__input" name="email" id="correo" placeholder="correo@correo.com" required>
                         </div>
                             <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
                     </div>
@@ -108,7 +124,7 @@
                     <div class="formulario__grupo" id="grupo__telefono">
                         <label for="telefono" class="formulario__label">Teléfono</label>
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Escriba aquí su teléfono" required>
+                            <input type="text" class="formulario__input" name="nombre" id="telefono" placeholder="Escriba aquí su teléfono" required>
                         </div>
                         <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
                     </div>
@@ -117,7 +133,7 @@
                     <!-- Grupo: Consulta-->
                 <div class="formulario__consulta" id="grupo__consulta">
                     <label for="consulta" class="formulario__label">Consulta</label>
-                    <textarea id="consulta" name="consulta" placeholder="Escribí tu Consulta" required></textarea>
+                    <textarea id="consulta" name="mensaje" placeholder="Escribí tu Consulta" required></textarea>
                 </div>    
                 
                 
