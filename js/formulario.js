@@ -2,8 +2,8 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	nombre: /^[a-zA-Z]$/$, // Letras y espacios
-	apellido: /^[a-zA-Z]$/$, // Letras y espacios, pueden llevar acentos.
+	nombre: /^[a-zA-Z]$\, // Letrayespacios
+	,apellido: /^[a-zA-Z]/$, // Letrasyespaciospuedenllevaracentos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/$,
 	telefono: /^\d{7,14}+[0-9]+$/$, // 7 a 14 numeros.
 	consulta: /^[a-zA-Z]/$, // Letras.
@@ -20,10 +20,10 @@ const campos = {
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre');
+			validarCampo(expresiones.apellido, e.target, 'nombre');
 		break;
 		case "apellido":
-			validarCampo(expresiones.apellido, e.target, 'apellido');
+			validarCampo(expresiones.nombre, e.target, 'apellido');
 		break;
 		case "correo":
 			validarCampo(expresiones.correo, e.target, 'correo');
