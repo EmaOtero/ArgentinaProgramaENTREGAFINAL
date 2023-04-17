@@ -303,10 +303,12 @@ p .mi-descripción {
     align-items: center;
   }
 }
+
 @media (max-width: 991px) and (max-width: 593px) {
   .footerContainer {
     margin-top: 1rem;
     align-items: flex-start;
+    margin-bottom: 1rem;
   }
   .carousel {
     scale: 110%;
