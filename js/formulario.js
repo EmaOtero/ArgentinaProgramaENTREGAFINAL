@@ -2,8 +2,8 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	nombre: /^[a-zA-Z]$\, // Letras y espacios
-	apellido: /^[a-zA-Z]/$, // Letras y espacios, pueden llevar acentos.
+	nombre: /^[a-zA-Z]$\, // Letrayespacios
+	,apellido: /^[a-zA-Z]/$, // Letrasyespaciospuedenllevaracentos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/$,
 	telefono: /^\d{7,14}+[0-9]+$/$, // 7 a 14 numeros.
 	consulta: /^[a-zA-Z]/$, // Letras.

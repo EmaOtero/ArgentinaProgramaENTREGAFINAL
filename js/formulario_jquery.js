@@ -24,8 +24,8 @@ $("#formulario_contacto").validate({
         correo: {
             required: true,
             email: true,
-            terminaPor; "duoc.cl"
-        },
+            terminaPor: "duoc.cl",
+        }
 
 
 
@@ -33,7 +33,7 @@ $("#formulario_contacto").validate({
 })
 
 
-$("#guardar").click(function) {
+$("#guardar").click(function)(); {
     if($("#formulario_contacto").valid() == false) {
         return;
     }
