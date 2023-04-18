@@ -6,7 +6,8 @@ form.addEventListener('submit', async (event) => {
 
     const nombre = document.getElementById('nombre');
     const email = document.getElementById('email');
-    const mensaje = document.getElementById('mensaje');
+    const mensaje = document.getElementById('consulta');
+    const telefono = document.getElementById('telefono');
 
     errorsContainer.innerHTML = ''; // Limpia los mensajes de error anteriores
 

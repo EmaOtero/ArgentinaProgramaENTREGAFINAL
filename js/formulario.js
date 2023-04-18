@@ -5,20 +5,20 @@ const inputs = document.querySelectorAll('#formulario input');
 const expresiones = {
 	nombre: /^[a-zA-Z]{1,20}$/, // Letras
 	apellido: /^[a-zA-Z]{1,40}$/, // Letras y espacios pueden llevar acentos
-	consulta: /^[a-zA-Z]{1,500}$/, // 4 a 12 digitos.
+	consulta: /^[a-zA-Z0-9_.+-]{1,500}$/, // 4 a 500 caracteres con espacios, numeros.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^[0-9]{7,14}$/ // 7 a 14 numeros.
 }
 
 const campos = {
-	nombre: false,
-	apellido: false,
-	correo: false,
-	telefono: false,
-	consulta: false
+	nombre: true,
+	apellido: true,
+	correo: true,
+	telefono: true,
+	consulta: true,
 }
 
-
+// -------------------Valida el formulario------------------- //
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nombre":
@@ -38,7 +38,7 @@ const validarFormulario = (e) => {
 		break;
 	}
 }
-
+// --------------- Valida campos del grupo Correcto e Incorrecto junto con estilo.css-----------------//
 const validarCampo = (expresion, input, campo) => {
 	if(expresion.test(input.value)){
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
@@ -62,11 +62,22 @@ inputs.forEach((input) => {
 	input.addEventListener('blur', validarFormulario);
 });
 
-formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
+function validarSiNumero(telefono){
+	if(!/^([0-9])*$/.test(telefono))
+	  alert("El valor "+telefono+" no es un número");
+  }
+// ---------------Envio de correo electronico-------------- //
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Evita el envío del formulario
 
+    const nombre = document.getElementById('nombre');
+    const correo = document.getElementById('correo');
+    const consulta = document.getElementById('consulta');
+    const telefono = document.getElementById('telefono');
+
+// ---------------------Valida Campos en rojo-----------------------------------
 	const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
+	if(campos.nombre && campos.apellido && campos.correo && campos.telefono && campos.consulta && terminos.checked ){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
@@ -81,3 +92,38 @@ formulario.addEventListener('submit', (e) => {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
 	}
 });
+
+
+// Script Api mapa estatico
+
+function findMe(){
+	var output = document.getElementById('mapa');
+
+	// Verificar si soporta geolocalizacion
+	if (navigator.geolocation) {
+	  output.innerHTML = "<p>Tu navegador soporta Geolocalizacion</p>";
+	}else{
+	  output.innerHTML = "<p>Tu navegador no soporta Geolocalizacion</p>";
+	}
+
+	//Aquí ponemos coordeandas deseadas, (así esta en la ubicación actual)
+	function localizacion(posicion){
+
+	  var latitude = posicion.coords.latitude;
+	  var longitude = posicion.coords.longitude;
+
+	  var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitude+","+longitude+"&size=600x300&markers=color:red%7C"+latitude+","+longitude+"&key=AIzaSyAkJ6n1fHArQ30JX9Bq7dGVCgg3YGndtCw";
+
+	  output.innerHTML ="<img src='"+imgURL+"'>";
+
+	}
+
+	function error(){
+	  output.innerHTML = "<p>No se pudo obtener tu ubicación</p>";
+
+	}
+
+	navigator.geolocation.getCurrentPosition(localizacion,error);
+
+  }
+
