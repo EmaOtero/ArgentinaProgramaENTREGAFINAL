@@ -21,10 +21,13 @@
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- FIN AOS -->
-
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
   <!----------------------------------------------------------- CSS ------------------------------------------------------------------------>
   <link rel="stylesheet" href="css/estilo.css">
   <!--------------------------------------------------------FIN DE CSS --------------------------------------------------------------------->
+  <!----------------------------------------------validacion jquery------------------------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
 </head>
 
 
@@ -75,48 +78,38 @@
   <br>
 
 
-  <script>
-    function enviarFormulario() {
-      // Obtener los valores del formulario
-      var nombre = document.getElementById("nombre").value;
-      var email = document.getElementById("email").value;
-      var mensaje = document.getElementById("mensaje").value;
-
-      // Construir el contenido del correo electrónico
-      var cuerpoMensaje = "Nombre: " + nombre + "\r\n" +
-                          "Email: " + email + "\r\n" +
-                          "Mensaje: " + mensaje;
-
-      // Abrir el cliente de correo predeterminado del usuario con el contenido del correo electrónico
-      window.location.href = "mailto:cristianjfarina@gmail.com" + "?subject=Formulario de Contacto" + "&body=" + encodeURIComponent(cuerpoMensaje);
-    }
-  </script>
-    <section>
-      <form action="https://formsubmit.co/cristianjfarina@email.com" method="POST" class="formulario" id="formulario">
+  
+      <section>
+        <form action="https://formsubmit.co/cristianjfarina@gmail.com" method="POST" class="formulario" id="formulario">
                 <!--Grupo: Nombre-->
                 <div class="formulario_box">
                     <div class="formulario__grupo" id="grupo__nombre">
-                        <label for="usuario" class="formulario__label">Nombre</label>
+                        <label for="nombre" class="formulario__label">Nombre</label>
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Su nombre aquí" required pattern="/^[a-zA-Z]\">
-                            
-                        </div>   
+                            <input type="text" class="formulario__input" name="nombre" placeholder="Su nombre aquí" >
+                            <i class="fa-light fa-circle-xmark fa-xs" style="color: #ff0000;"></i>
+                        </div>
+                        <p class="formulario__input-error">El nombre solo puede tener letras</p>   
                     </div>
                     
-                <!-- Grupo: Apellido -->
-                    <div class="formulario__grupo" id="grupo__nombre">
-                        <label for="apelido" class="formulario__label">Apellido</label>
-                        <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Su apellido va aquí" required>
-                        </div>
-                    </div>
+                <!-- Grupo: Apellido -->        
+                            <div class="formulario__grupo" id="grupo__apellido">
+                                <label for="apellido" class="formulario__label">Apellido</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="apellido" placeholder="Su apellido aquí" >
+                                    <i class="fa-light fa-circle-xmark fa-xs" style="color: #ff0000;"></i>
+                                </div>
+                                <p class="formulario__input-error">El apellido solo puede tener letras</p>   
+                            </div>
+                        
                     
                 <!-- Grupo: Correo Electronico -->
                     <div class="formulario__grupo" id="grupo__correo">
                         <label for="correo" class="formulario__label">Correo Electrónico</label>
                         <div class="formulario__grupo-input">
-                            <input type="email" class="formulario__input" name="email" id="correo" placeholder="correo@correo.com" required>
-                        </div>
+                            <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com" required>
+                            <i class="fa-light fa-circle-xmark fa-xs" style="color: #ff0000;"></i>
+                          </div>
                             <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
                     </div>
                     
@@ -124,7 +117,8 @@
                     <div class="formulario__grupo" id="grupo__telefono">
                         <label for="telefono" class="formulario__label">Teléfono</label>
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="nombre" id="telefono" placeholder="Escriba aquí su teléfono" required>
+                            <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Escriba aquí su teléfono" required pettern="[0-9]">
+                            <i class="fa-light fa-circle-xmark fa-xs" style="color: #ff0000;"></i>
                         </div>
                         <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
                     </div>
@@ -133,10 +127,21 @@
                     <!-- Grupo: Consulta-->
                 <div class="formulario__consulta" id="grupo__consulta">
                     <label for="consulta" class="formulario__label">Consulta</label>
-                    <textarea id="consulta" name="mensaje" placeholder="Escribí tu Consulta" required></textarea>
+                    <textarea id="consulta" name="consulta" placeholder="Escribí tu Consulta" required></textarea>
                 </div>    
                 
+                    <!--  Grupo: Terminos y Condiciones-->
+                <div class="formulario__grupo" id="grupo__terminos">
+                  <label class="formulario__label">
+                    <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+                    Acepto los Terminos y Condiciones
+                  </label>
+                </div>
                 
+                <!--<div class="formulario__mensaje" id="formulario__mensaje">
+                  <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente</p>
+                </div>-->
+
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
                     <button type="submit" class="formulario__btn">Enviar</button>
                     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
@@ -146,6 +151,9 @@
             </form>
             
         </section>
+
+        <script src="js/formulario.js"></script>
+        <script src="https://use.fontawesome.com/your-embed-code.js"></script> 
     </body>
 
   <!------------------------------------------------------ INICIO FOOTER ------------------------------------------------------------------->
@@ -190,6 +198,8 @@
   <script>
     AOS.init();
   </script>
+
+ 
 </body>
 <!------------------------------------------------------------ FIN BODY ---------------------------------------------------------------------->
 
