@@ -287,9 +287,6 @@ p .mi-descripción {
     max-width: 100%;
     margin-top: 0%;
   }
-  .mapa {
-    margin-top: 2rem;
-    margin-left: 0rem;
   }
   .comtainer-soluciones {
     display: flex;
@@ -302,7 +299,6 @@ p .mi-descripción {
     text-align: center;
     align-items: center;
   }
-}
 
 @media (max-width: 991px) and (max-width: 593px) {
   .footerContainer {
@@ -320,7 +316,6 @@ p .mi-descripción {
   }
 }
 
-// formulario //
 
 .formulario {
 	display: flex;
@@ -490,5 +485,8 @@ p .mi-descripción {
 	}
 }
 
+mapouter {
 
-/*# sourceMappingURL=estilo.css.map */
+	height: 500px;
+	width: 100%;
+}
