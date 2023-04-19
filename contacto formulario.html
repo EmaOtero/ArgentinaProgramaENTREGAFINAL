@@ -87,7 +87,8 @@
   
       <section>
         <!--------------------------------------------Enviar Email------------------------------------------------------->
-        <form action="https://formsubmit.co/cristianjfarina@gmail.com" method="POST" class="formulario" id="formulario">
+        <form class="formulario" id="formulario">
+        <!--action="https://formsubmit.co/cristianjfarina@gmail.com" method="POST" class="formulario" id="formulario">-->
                 <!--Grupo: Nombre-->
                 <div class="formulario_box">
                     <div class="formulario__grupo formulario__grupo-correcto" id="grupo__nombre">
@@ -151,12 +152,20 @@
                 </div>
 
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
-                    <button type="submit" value="Enviar" class="formulario__btn">Enviar</button>
+                    <button type="submit" id="button" class="formulario__btn" value="enviando...">Enviar</button>
                     <script type="text/formulario" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
                   </div>
-                
+              
+                  </form>
+
                 </form>
-                
+              <!-------------------------------------- Scripts para enviar Email------------------------------------------------>
+                <script type="text/javascript"  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+                <script type="text/javascript"> emailjs.init('JtmTWixNcghDqJfLs')
+                </script>
+
+
               </section>
               
       <hr class="linea">

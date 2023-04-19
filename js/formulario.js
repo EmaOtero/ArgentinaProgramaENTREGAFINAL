@@ -18,6 +18,31 @@ const campos = {
 	consulta: true,
 }
 
+// -----------------------Enviar correo a travez de jsmail------------------------- //
+
+const btn = document.getElementById('button');
+
+document.getElementById('formulario')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Enviando...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_or2u6fa';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'enviar consulta';
+      alert('Consulta Enviada con Exito, Muchas Gracias!. A la brevedad nos comunicaremos con usted.');
+    }, (err) => {
+      btn.value = 'enviar consulta';
+      alert(JSON.stringify(err));
+    });
+});
+
+
+
 // -------------------Valida el formulario------------------- //
 const validarFormulario = (e) => {
 	switch (e.target.name) {
@@ -94,7 +119,7 @@ function validarSiNumero(telefono){
 });
 
 
-// Script Api mapa estatico
+// -----------------Script Api mapa estatico ----------------- //
 
 function findMe(){
 	var output = document.getElementById('mapa');
@@ -128,23 +153,3 @@ function findMe(){
   }
 
   
-  $(document).ready(function () {
-
-	$('#send').click(function () {
-
-	  if ($('#telefono').val().length != 9 || isNaN($('#telefono').val())) {
-
-		$('#telefono').css('border-color', '#FF0000');
-
-		alert('El número de teléfono debe tener al menos 9 números.');
-
-		return false;
-
-	  } else {
-
-		alert('OK');
-
-	  }
-
-	});
-  })
