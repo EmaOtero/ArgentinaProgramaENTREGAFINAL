@@ -22,7 +22,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- FIN AOS -->
 	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!----------------------------------------------------------- CSS ------------------------------------------------------------------------>
   <link rel="stylesheet" href="css/estilo.css">
   <!--------------------------------------------------------FIN DE CSS --------------------------------------------------------------------->
@@ -32,30 +32,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.css" integrity="sha512-2dJkRM/DmWkZqINs3QixNKKsgG9mlBT9/PieLVF8OEGHCpPNBoPFYmGPL/yD7JuQVVm2IESF5K0zTDBaf4qehQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/brands.min.js" integrity="sha512-KYlRezs7yAa59UnX6zAvY7I96Te02kycQn02Sr6FU/fBpxcXAwumRe5DHVrqVnWTt9HY/PktrAPZzSe9UE1Yxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
-  <!--<script type="text/javascript">
-    $(document).ready(function () {
-
-      $('#send').click(function () {
-
-        if ($('#phone').val().length != 9 || isNaN($('#phone').val())) {
-
-          $('#phone').css('border-color', '#FF0000');
-
-          alert('El número de teléfono debe tener al menos 9 números.');
-
-          return false;
-
-        } else {
-
-          alert('OK');
-
-        }
-
-      });
-
-    });
-  </script>-->
+  <script type="text/javascript"></script>
+  <script src="https://use.fontawesome.com/45404f6cf0.js"></script>
 </head>
 
 
@@ -129,7 +107,7 @@
                                     <i class="formulario__validacion-estado"></i>
                                     <i class="formulario__grupo-correcto formulario__validacion-estado"></i>
                                   </div>
-                                <p class="formulario__input-error">El apellido solo puede tener letras</p>  
+                                <p class="formulario__input-error">El apellido solo puede tener letras</p> 
                             </div>
                         
                     
@@ -147,10 +125,9 @@
                     <div class="formulario__grupo" id="grupo__telefono">
                         <label for="telefono" class="formulario__label">Teléfono</label>
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Escriba aquí su teléfono" required pettern="[0-9]">
-                            <i class="formulario__validacion-estado"></i>
-
-                        </div>
+                            <input type="number" class="formulario__input" name="telefono" id="telefono" placeholder="Escriba aquí su teléfono" required pettern="[0-9]">
+                            <i class="formulario__validacion-estado fas fa-paper-plane"></i>
+                          </div>
                         <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
                     </div>
                 </div>

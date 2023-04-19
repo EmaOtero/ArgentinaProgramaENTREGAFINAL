@@ -127,3 +127,24 @@ function findMe(){
 
   }
 
+  
+  $(document).ready(function () {
+
+	$('#send').click(function () {
+
+	  if ($('#telefono').val().length != 9 || isNaN($('#telefono').val())) {
+
+		$('#telefono').css('border-color', '#FF0000');
+
+		alert('El número de teléfono debe tener al menos 9 números.');
+
+		return false;
+
+	  } else {
+
+		alert('OK');
+
+	  }
+
+	});
+  })
